@@ -39,7 +39,7 @@
 						var name = Ext.getCmp("name").getValue();
 						var pwd = Ext.getCmp("pwd").getValue();
 						//console.log(name + "," + pwd);
-						var url =encodeURI( "http://1.232.123.197:9000/komaa/login.shtml?"
+						var url =encodeURI(
 								+ "uname=" + name + "&passwd=" + pwd);
 								
 								
