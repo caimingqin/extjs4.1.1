@@ -1,0 +1,46 @@
+var sJumin = Ext.widget('metext', {
+					fieldLabel : '주민번호',
+					margin : '0 0 0 10',
+					width : 300
+				})
+var insurerAndsJumin = Ext.widget('mefc', {
+					layout : 'hbox',
+					items : [insurer, sJumin]
+				})
+				
+Common.setValue(sJumin, obj.accident.person.sjumin);
+///////////////////////////
+
+
+	var likeCnd = Ext.widget('metext', {
+			       labelWidth : 40,
+			       width:120,
+					fieldLabel : '항목'
+				})
+		var likeComboCnd = Ext.widget('mecombo', {
+					labelWidth : 40,
+					 width:120,
+					displayField : 'name',
+					valueField : 'code',
+					queryMode : 'local',
+					store : likeComboStore
+
+				})
+				
+	likeCnd,likeComboCnd,
+	
+	var likeValue=Common.value(likeCnd);
+			var likeComboxValue=Common.value(likeComboCnd);
+			if(likeComboxValue&&likeValue){
+			query += ","+likeComboxValue+":" + Common.read(likeValue);
+			}	
+			
+			
+	var queryObject = new QueryObject('SurveyRequest', '{}',
+					null,100)
+			AppContext.commandQuery(queryObject, function(contents) {
+						// console.log(contents);
+						store.loadData(Common.decode(contents));
+					});
+
+						

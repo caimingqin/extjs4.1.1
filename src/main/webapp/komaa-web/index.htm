@@ -1,0 +1,110 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Komma 손해사정 - 조사업무 시스템</title>
+	
+	<!--websocket-->
+ <script type="text/javascript" src="js/websocket/swfobject.js"></script>
+        <script type="text/javascript" src="js/websocket/web_socket.js"></script>  
+		
+		   <script type="text/javascript" charset="utf-8" src="ueditor1_2_4_0-utf8-jsp/editor_config.js"></script>
+      <script type="text/javascript" charset="utf-8" src="ueditor1_2_4_0-utf8-jsp/editor_all.js"></script>
+
+	
+    <!-- Ext -->
+    <link rel="stylesheet" type="text/css" href="resources/css/ext-all.css" />
+	<!--link rel="stylesheet" type="text/css" href="resources/css/ext-all-gray.css" / -->
+	<link rel="stylesheet" type="text/css" href="resources/komaa.css" />
+	  <script type="text/javascript" src="js/common/ext-all.js"></script>	  
+	  <script type="text/javascript" src="js/locale/ext-lang-ko.js" charset="utf-8"></script>	  
+		
+	  <script type="text/javascript" src="js/common/PostData.js"></script>
+	  <script type="text/javascript" src="js/common/QueryObject.js"></script>
+	  	  <script type="text/javascript" src="js/common/AppContext.js"></script>
+		  	  <script type="text/javascript" src="js/common/Common.js"></script>
+	  
+	    	   <script type="text/javascript" src="js/component/TreePicker.js"></script>
+			<script type="text/javascript" src="js/component/Component.js"></script>			
+					
+	    <script type="text/javascript" src="js/model/Model.js"></script>
+	  <script type="text/javascript" src="js/model/Enmu.js"></script>
+	  
+	  <script type="text/javascript" src="js/store/EnmuStore.js"></script>
+	  <script type="text/javascript" src="js/store/ModelStore.js"></script>
+  
+	     <script type="text/javascript" src="js/view/Home.js"></script>
+		  <script type="text/javascript" src="js/view/Z1.js"></script>
+		    <script type="text/javascript" src="js/view/Z2.js"></script>
+		  	  <script type="text/javascript" src="js/view/Z3.js"></script>
+			  <script type="text/javascript" src="js/view/Z5.js"></script>
+			   <script type="text/javascript" src="js/view/Z6.js"></script>
+			   
+			   <script type="text/javascript" src="js/view/Z7.js"></script>
+			   <script type="text/javascript" src="js/view/Z8.js"></script>
+			  
+			  
+			    <script type="text/javascript" src="js/view/B1.js"></script>
+				  <script type="text/javascript" src="js/view/B2.js"></script>
+				    <script type="text/javascript" src="js/view/B3.js"></script>
+					  <script type="text/javascript" src="js/view/B4.js"></script>
+			  <script type="text/javascript" src="js/view/B5.js"></script>
+		
+		
+		    <script type="text/javascript" src="js/view/C3.js"></script>
+					  <script type="text/javascript" src="js/view/C4.js"></script>
+			  <script type="text/javascript" src="js/view/C1.js"></script>
+		  <script type="text/javascript" src="js/view/C2.js"></script>
+		     <script type="text/javascript" src="js/view/RF.js"></script>
+		  		  <script type="text/javascript" src="js/view/R1.js"></script>
+				   <script type="text/javascript" src="js/view/R2.js"></script>
+				     <script type="text/javascript" src="js/view/R3.js"></script>
+					    <script type="text/javascript" src="js/view/R5.js"></script>
+					 <script type="text/javascript" src="js/view/R6.js"></script>
+					 
+					  <script type="text/javascript" src="js/view/DF.js"></script>
+		
+      <script type="text/javascript" src="js/view/index.js"></script>
+	  
+	  <script type="text/javascript">
+
+  // Let the library know where WebSocketMain.swf is:
+  WEB_SOCKET_SWF_LOCATION = "js/websocket/WebSocketMain.swf";
+
+  // Write your code in the same way as for native WebSocket:
+  (
+  function(){
+     initWS();
+  }
+  )();
+
+  function initWS(){
+    var ws = new WebSocket("ws://1.232.123.197:8080/komaa/chat.shtml");
+  ws.onopen = function() {
+        console.log("iniit");  // Sends a message.'
+		 //ws.send("iniit");
+  };
+  ws.onmessage = function(e) {
+    // console.log("onmessage");
+   		var task = Common.decode(e.data.toString());
+	
+	Ext.example.msg('새로운','접수사항');
+  };
+  ws.onclose = function() {
+   //   alert("closed");
+   console.log("onclose");
+   if(document.cookie){
+    console.log(document.cookie);
+      initWS();
+   }
+ 
+  };
+  
+  }
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
